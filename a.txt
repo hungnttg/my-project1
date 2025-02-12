@@ -7,7 +7,7 @@ cat ~/.ssh/githung.pub (hoac cat /Users/hungnq/.ssh/githung.pub)
 CHuong trinh xuat hien key
 Ta copy key nay=> vao trang github.com -> setting -> SSH and GPC Keys
 Sau do chon ssh key va paste key vao
------
+---------------------------------------------------------------------
 Tao du an moi tren github: (neu chua tao)
 Check gh: gh --version
 can cai brew install gh (neu chua co gh)
@@ -22,14 +22,14 @@ chọn github.com
 SSH
 và paste key vừa copy
 Là login thành công
---
+--------------------------------------------------------------------
 Tiếp tục khởi tạo git:
 git init
 Chú ý: mặc định sử dụng nhánh "master" là nhánh chính
 Nếu muốn đổi thành "main", hãy chạy: git branch -m main
 Hoặc, để đặt "main" làm nhánh mặc định cho tất cả repo sau này:
 git config --global init.defaultBranch main
----
+--------------------------------------------------------------------
 Tạo project:
 gh repo create my-project1 --public --source=. --remote=origin
 --public (hoặc --private nếu muốn repo riêng tư).
@@ -37,7 +37,7 @@ gh repo create my-project1 --public --source=. --remote=origin
 --remote=origin tự động thêm remote GitHub.
 Truy cập đường dẫn project:
 https://github.com/hungnttg/my-project1
-----
+-------------------------------------------------------------------
 Tạo nhánh chính main:
 git checkout -b main
 Thêm file vào nhánh main:
@@ -47,24 +47,62 @@ git add README.md
 git commit -m "init commit on main"
 Đẩy code lên nhánh main của github.com
 git push -u origin main
-
-----
+-------------------------------------------------------------------
+Kiểm tra nhánh đang làm việc:
+git branch --show-current
+--------------------------------------------------------------------
 Cập nhật code từ nhánh chính:
-
-----
+git switch sp1 hoặc git checkout sp1 (chuyển sang nhánh sp1)
+git rebase main hoặc git merge main (xếp chồng code hoặc gộp code từ main vào sp1)
+Nếu có xung đột, chỉnh sửa file bị lỗi, sau đó chạy:
+git add .
+git rebase --continue (hoặc git commit -m "Resolve merge conflicts")
+-------------------------------------------------------------------
+Đẩy thay đổi lên sp1 của GitHub:
+git push origin sp1
+--------------------------------------------------------------------
+merge sp1 vào nhánh main:
+Chuyển sang nhánh main
+git checkout main
+Kéo code mới nhất từ GitHub (để tránh xung đột)
+git pull origin main
+Gộp (merge) nhánh sp1 vào main
+git merge sp1
+nếu có lỗi:
+    git add .
+    git commit -m "Resolve merge conflicts"
+Đẩy code lên GitHub
+git push origin main
+-----------------------------------------------------------------
 Tạo nhánh mới để làm việc:
 git checkout -b sp1
----
+------------------------------------------------------------------
 Đưa code lên nhánh mới sp1 trên local:
 git add .
 git commit -m "Them file"
 Đẩy dữ liệu vào nhánh trên local
 git push origin sp1 
+------------------------------------------------------------------
 Đẩy dữ liệu vào nhánh trên github
 git push -u origin sp1
-----
+-----------------------------------------------------------------
+Xóa nhánh nếu không cần:
+git branch -d sp1  # Xóa nhánh local
+git push origin --delete sp1  # Xóa nhánh trên GitHub
+-----------------------------------------------------------------
 
-
+======khi không đăng nhập được===
+Tìm file sshkey:
+ls ~/.ssh/
+nếu thấy file githung và githung.pub thì
+Ghi nhớ:
+eval "$(ssh-agent -s)"             
+ssh-add ~/.ssh/githung
+Lấy nội dung file:
+cat ~/.ssh/githung.pub
+Copy và paste vào SSH key:
+https://github.com/settings/keys
+=====================================
 
 
 
