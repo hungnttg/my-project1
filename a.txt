@@ -38,16 +38,31 @@ gh repo create my-project1 --public --source=. --remote=origin
 Truy cập đường dẫn project:
 https://github.com/hungnttg/my-project1
 ----
+Tạo nhánh chính main:
+git checkout -b main
+Thêm file vào nhánh main:
+ví dụ:
+echo "#my project1"> README.md
+git add README.md
+git commit -m "init commit on main"
+Đẩy code lên nhánh main của github.com
+git push -u origin main
+
+----
 Cập nhật code từ nhánh chính:
 
 ----
 Tạo nhánh mới để làm việc:
 git checkout -b sp1
 ---
-Đưa code lên nhánh mới sp1:
+Đưa code lên nhánh mới sp1 trên local:
 git add .
 git commit -m "Them file"
-git push origin sp1
+Đẩy dữ liệu vào nhánh trên local
+git push origin sp1 
+Đẩy dữ liệu vào nhánh trên github
+git push -u origin sp1
+----
 
 
 
