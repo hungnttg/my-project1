@@ -1,0 +1,47 @@
+git config --global user.name "Hung Nguyen"
+git config --global user.email "hungnttg@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "hungnttg@gmail.com"
+nhap githung vao cho id_rsa va enter
+mv githung githung.pub ~/.ssh/
+cat ~/.ssh/githung.pub (hoac cat /Users/hungnq/.ssh/githung.pub)
+CHuong trinh xuat hien key
+Ta copy key nay=> vao trang github.com -> setting -> SSH and GPC Keys
+Sau do chon ssh key va paste key vao
+-----
+Tao du an moi tren github: (neu chua tao)
+Check gh: gh --version
+can cai brew install gh (neu chua co gh)
+Tao key login:
+https://github.com/settings/tokens
+chọn tokens classic
+tích vào các quyền và chọn generate
+copy key
+Bắt đầu login:
+gh auth login
+chọn github.com
+SSH
+và paste key vừa copy
+Là login thành công
+--
+Tiếp tục khởi tạo git:
+git init
+Chú ý: mặc định sử dụng nhánh "master" là nhánh chính
+Nếu muốn đổi thành "main", hãy chạy: git branch -m main
+Hoặc, để đặt "main" làm nhánh mặc định cho tất cả repo sau này:
+git config --global init.defaultBranch main
+---
+Tạo project:
+gh repo create my-project1 --public --source=. --remote=origin
+--public (hoặc --private nếu muốn repo riêng tư).
+--source=. giúp tạo repo từ thư mục hiện tại.
+--remote=origin tự động thêm remote GitHub.
+Truy cập đường dẫn project:
+https://github.com/hungnttg/my-project1
+----
+Tạo nhánh mới để làm việc:
+
+
+
+
+
+
