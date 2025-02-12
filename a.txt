@@ -38,7 +38,17 @@ gh repo create my-project1 --public --source=. --remote=origin
 Truy cập đường dẫn project:
 https://github.com/hungnttg/my-project1
 ----
+Cập nhật code từ nhánh chính:
+
+----
 Tạo nhánh mới để làm việc:
+git checkout -b sp1
+---
+Đưa code lên nhánh mới sp1:
+git add .
+git commit -m "Them file"
+git push origin sp1
+
 
 
 
